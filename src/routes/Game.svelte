@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Countdown from './Countdown.svelte';
+	import Found from './Found.svelte';
 	import Grid from './Grid.svelte';
 	import { levels } from './levels';
 	import type { Level } from './levels';
@@ -9,6 +11,8 @@
 	let size: number = level.size;
 	let grid: string[] = createGrid(level);
 	let found: string[] = [];
+	let remaining: number = level.duration;
+	let duration: number = level.duration;
 
 	function createGrid(level: Level) {
 		const copy = level.emojis.slice();
@@ -25,10 +29,14 @@
 
 		return shuffle(pairs);
 	}
+
+	function countdown() {}
 </script>
 
 <div class="game">
-	<div class="info" />
+	<div class="info">
+		<Countdown remaining={level.duration} duration={level.duration} />
+	</div>
 	<div class="grid-container">
 		<Grid
 			{grid}
@@ -38,7 +46,9 @@
 			{found}
 		/>
 	</div>
-	<div class="info" />
+	<div class="info">
+		<Found {found} />
+	</div>
 </div>
 
 <style>
@@ -53,11 +63,9 @@
 	.info {
 		width: 80em;
 		height: 10em;
-		background-color: purple;
 	}
 	.grid-container {
 		width: 80em;
 		height: 80em;
-		background: teal;
 	}
 </style>
