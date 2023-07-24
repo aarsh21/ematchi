@@ -13,7 +13,7 @@
 		>
 	</button>
 	<div class="duration">
-		<div class="remaining" style="--p:{remaining / duration}" />
+		<div class="remaining" style="--p: {remaining / duration}" />
 	</div>
 </div>
 
@@ -36,6 +36,7 @@
 		height: 100%;
 	}
 	.duration {
+		position: relative;
 		flex: 1;
 		height: 1em;
 		background: #ccc;
@@ -43,8 +44,8 @@
 
 	.remaining {
 		position: absolute;
-		width: calc(100 * var(--p));
+		width: calc(100% * var(--p));
 		height: 100%;
-		background: #000000;
+		background: #999;
 	}
 </style>
