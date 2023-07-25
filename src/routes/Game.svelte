@@ -13,7 +13,6 @@
 	let grid: string[] = createGrid(level);
 	let found: string[] = [];
 	let remaining: number = level.duration;
-
 	let duration: number = level.duration;
 	let playing: boolean = false;
 

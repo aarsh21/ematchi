@@ -46,8 +46,8 @@
 		font-size: inherit;
 	}
 	img {
-		width: 6em;
-		height: 6em;
+		width: 8em;
+		height:  8em;
 		pointer-events: none;
 		transform: rotateY(180deg);
 		backface-visibility: hidden;
