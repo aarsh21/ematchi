@@ -33,7 +33,7 @@
 		align-items: center;
 		width: 8em;
 		height: 8em;
-		background: #646464;
+		background: #bdb9b9;
 		padding: 1em;
 		border-radius: 50%;
 		filter: drop-shadow(

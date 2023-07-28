@@ -18,16 +18,15 @@
 
 	export function start(level: Level) {
 		size = level.size;
-		grid = createGrid(level);
 		remaining = duration = level.duration;
 
+		grid = createGrid(level);
 		resume();
 	}
 
 	export function resume() {
 		playing = true;
 		countdown();
-
 		dispatch('play');
 	}
 
@@ -79,17 +78,23 @@
 		{/if}
 	</div>
 	<div class="grid-container">
-		<Grid
-			{grid}
-			on:found={(e) => {
-				found = [...found, e.detail.emoji];
+		{#key grid}
+			<Grid
+				{grid}
+				on:found={(event) => {
+					found = [...found, event.detail.emoji];
 
-				if (found.length === (size * size) / 2) {
-					dispatch('win');
-				}
-			}}
-			{found}
-		/>
+					if (found.length === (size * size) / 2) {
+						playing = false;
+						setTimeout(() => {
+							playing = false;
+							dispatch('win');
+						}, 1000);
+					}
+				}}
+				{found}
+			/>
+		{/key}
 	</div>
 	<div class="info">
 		<Found {found} />
