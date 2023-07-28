@@ -9,6 +9,17 @@
 	let game: Game;
 </script>
 
+<svelte:head>
+	<title>ematchi</title>
+	<meta name="description" content="the emoji matching game" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta property="twitter:domain" content="ematchi.vercel.app" />
+	<meta property="twitter:url" content="https://ematchi.vercel.app" />
+	<meta name="twitter:title" content="ematchi" />
+	<meta name="twitter:description" content="the emoji matching game" />
+	<meta name="twitter:image" content="https://ematchi.vercel.app/og.png" />
+</svelte:head>
+
 <Game
 	bind:this={game}
 	on:play={() => {
