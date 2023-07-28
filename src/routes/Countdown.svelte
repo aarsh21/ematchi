@@ -48,6 +48,7 @@
 		position: absolute;
 		width: calc(100% * var(--p));
 		height: 100%;
-		background: #999;
+		/* background: #999; */
+		background: #646464;
 	}
 </style>

@@ -41,16 +41,18 @@
 
 		<div class="buttons">
 			{#if state === 'paused'}
-				<button>resume</button>
-				<button>quit</button>
+				<button on:click={() => game.resume()}>resume</button>
+				<button on:click={() => (state = 'waiting')}> quit </button>
 			{:else}
-				{#each levels as level}
-					<button
-						on:click={() => {
-							game.start(level);
-						}}>{level.label}</button
-					>
-				{/each}
+				<div class="btn-class">
+					{#each levels as level}
+						<button
+							on:click={() => {
+								game.start(level);
+							}}>{level.label}</button
+						>
+					{/each}
+				</div>
 			{/if}
 		</div>
 	</Modal>
@@ -67,11 +69,14 @@
 {/if}
 
 <style>
+	* {
+		text-align: center;
+	}
 	h1 {
 		font-size: 4em;
 	}
 	h1 span {
-		color: purple;
+		color: #9003f4;
 	}
 	p {
 		font-family: grandstander;
@@ -84,5 +89,34 @@
 		left: 50%;
 		top: 30%;
 		pointer-events: none;
+	}
+
+	.btn-class {
+		display: flex;
+		gap: 1em;
+	}
+	button {
+		padding: 20px 25px;
+		background-color: #050801;
+		color: #ffffff;
+		font-weight: bold;
+		border: none;
+		border-radius: 5px;
+		letter-spacing: 4px;
+		overflow: hidden;
+		transition: 0.5s;
+		cursor: pointer;
+	}
+
+	button:hover {
+		background: #9003f4;
+		color: #050801;
+		box-shadow: 0 0 5px #a883c2, 0 0 25px #d4bce6, 0 0 50px #a883c2, 0 0 200px #a883c2;
+		-webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+	}
+
+	:global(body.dark-mode) {
+		background-color: #000000;
+		color: hsl(0, 0%, 100%);
 	}
 </style>

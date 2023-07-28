@@ -7,16 +7,10 @@
 
 <div class="found">
 	{#each found as emoji (emoji)}
-	<div class="pair">
-		<img 
-		in:receive={{key:`${emoji}:a`}}	
-		src={getTwemojiUrl(emoji)} 
-		alt={emoji} />
-		<img 
-		in:receive={{key:`${emoji}:b`}}	
-		src={getTwemojiUrl(emoji)} 
-		alt={emoji} />
-	</div>
+		<div class="pair">
+			<img in:receive={{ key: `${emoji}:a` }} src={getTwemojiUrl(emoji)} alt={emoji} />
+			<img in:receive={{ key: `${emoji}:b` }} src={getTwemojiUrl(emoji)} alt={emoji} />
+		</div>
 	{/each}
 </div>
 
@@ -27,24 +21,30 @@
 		align-items: center;
 		gap: 0.5em;
 		height: 100%;
-		filter: drop-shadow( rgba(9, 30, 66, 0.25) 3px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px);
+		filter: drop-shadow(
+			rgba(9, 30, 66, 0.25) 3px 4px 8px -2px,
+			rgba(9, 30, 66, 0.08) 0px 0px 0px 1px
+		);
 	}
 
-	.pair{
+	.pair {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		width: 8em;
 		height: 8em;
-		background: rgb(223, 222, 222);
+		background: #646464;
 		padding: 1em;
-		border-radius: 50%; 
-		filter: drop-shadow( rgba(9, 30, 66, 0.25) 3px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px);
+		border-radius: 50%;
+		filter: drop-shadow(
+			rgba(9, 30, 66, 0.25) 3px 4px 8px -2px,
+			rgba(9, 30, 66, 0.08) 0px 0px 0px 1px
+		);
 	}
 
-	img {  
+	img {
 		position: absolute;
-		width:4em;
-		height:4em;
+		width: 4em;
+		height: 4em;
 	}
 </style>

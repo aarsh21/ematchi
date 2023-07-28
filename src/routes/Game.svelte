@@ -3,7 +3,7 @@
 	import Countdown from './Countdown.svelte';
 	import Found from './Found.svelte';
 	import Grid from './Grid.svelte';
-	import { levels } from './levels';
+
 	import type { Level } from './levels';
 	import { shuffle } from './utils';
 
@@ -24,7 +24,7 @@
 		resume();
 	}
 
-	function resume() {
+	export function resume() {
 		playing = true;
 		countdown();
 
