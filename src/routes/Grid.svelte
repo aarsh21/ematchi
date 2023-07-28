@@ -7,7 +7,7 @@
 
 	let a = -1;
 	let b = -1;
-	let reset_timeout: number;
+	let resetTimeout: number;
 </script>
 
 <div class="grid">
@@ -15,7 +15,7 @@
 		<Square
 			{emoji}
 			on:click={() => {
-				clearTimeout(reset_timeout);
+				clearTimeout(resetTimeout);
 				if (a === -1 && b === -1) {
 					a = i;
 				} else if (b === -1) {
@@ -25,7 +25,7 @@
 							emoji
 						});
 					} else {
-						setTimeout(() => {
+						resetTimeout = setTimeout(() => {
 							a = b = -1;
 						}, 1000);
 					}
@@ -47,7 +47,7 @@
 		grid-template-columns: repeat(var(--size), 1fr);
 		grid-template-rows: repeat(var(--size), 1fr);
 		height: 100%;
-		grid-gap: 1em;
+		grid-gap: 0.5em;
 		perspective: 100vw;
 	}
 </style>

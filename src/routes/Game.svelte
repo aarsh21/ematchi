@@ -42,6 +42,7 @@
 		}
 
 		pairs.push(...pairs);
+		found = [];
 
 		return shuffle(pairs);
 	}
